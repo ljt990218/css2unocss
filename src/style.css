@@ -37,6 +37,10 @@ body {
   text-align: center;
 }
 
+.github-icon {
+  fill: #fff;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -47,5 +51,8 @@ body {
   }
   button {
     background-color: #f9f9f9;
+  }
+  .github-icon {
+    fill: #000;
   }
 }
