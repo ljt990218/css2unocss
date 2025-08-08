@@ -6,15 +6,24 @@ const inputText = ref(`width: 470rpx; height: 172rpx; background: #FFFFFF; borde
 const outputText = ref([]) as any
 const removeUnit = ref('rpx')
 
+// 首次进入不复制到剪贴板
+const isFirstLoad = ref(true)
+
 const handleInput = () => {
   const removePxVal = removeUnit.value === 'px'
   const removeRpxVal = removeUnit.value === 'rpx'
   outputText.value = toUnocssClass(inputText.value, false, false, removeRpxVal, removePxVal)[0]
 
-  // 复制 outputText
+  // 首次进入时不复制，后续交互才复制
+  if (isFirstLoad.value) {
+    isFirstLoad.value = false
+    return
+  }
+
   navigator.clipboard.writeText(outputText.value)
 }
 
+// 首次进入时计算一次，方便预览，但不复制
 handleInput()
 </script>
 
