@@ -1,6 +1,6 @@
 <script setup vapor lang="ts">
 import { ref } from 'vue'
-import { toUnocssClass } from './utils/index.js'
+import { toUnocssClass } from './utils/index'
 
 const inputText = ref(`width: 470rpx; height: 172rpx; background: #FFFFFF; border-radius: 16rpx; `)
 const outputText = ref([]) as any
